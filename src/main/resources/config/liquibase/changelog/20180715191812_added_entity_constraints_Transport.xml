@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Transport.
+    -->
+    <changeSet id="20180715191812-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="driver_id"
+                                 baseTableName="transport"
+                                 constraintName="fk_transport_driver_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="driver"/>
+
+        <addForeignKeyConstraint baseColumnNames="truck_id"
+                                 baseTableName="transport"
+                                 constraintName="fk_transport_truck_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="truck"/>
+
+        <addForeignKeyConstraint baseColumnNames="trailer_id"
+                                 baseTableName="transport"
+                                 constraintName="fk_transport_trailer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="trailer"/>
+
+        <addForeignKeyConstraint baseColumnNames="factory_id"
+                                 baseTableName="transport"
+                                 constraintName="fk_transport_factory_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company_factory"/>
+
+        <addForeignKeyConstraint baseColumnNames="comapny_id"
+                                 baseTableName="transport"
+                                 constraintName="fk_transport_comapny_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company_main"/>
+
+    </changeSet>
+</databaseChangeLog>

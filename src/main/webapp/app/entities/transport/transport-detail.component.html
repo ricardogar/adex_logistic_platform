@@ -1,0 +1,109 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="transport">
+            <h2><span jhiTranslate="adexPlatformApp.transport.detail.title">Transport</span> {{transport.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adexPlatformApp.transport.orderNumber">Order Number</span></dt>
+                <dd>
+                    <span>{{transport.orderNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.createDate">Create Date</span></dt>
+                <dd>
+                    <span>{{transport.createDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'adexPlatformApp.TransportStatus.' + transport.status}}">{{transport.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.city">City</span></dt>
+                <dd>
+                    <span>{{transport.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.postCode">Post Code</span></dt>
+                <dd>
+                    <span>{{transport.postCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.street">Street</span></dt>
+                <dd>
+                    <span>{{transport.street}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.houseNumber">House Number</span></dt>
+                <dd>
+                    <span>{{transport.houseNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{transport.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{transport.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{transport.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.plannedDeliveryDate">Planned Delivery Date</span></dt>
+                <dd>
+                    <span>{{transport.plannedDeliveryDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.deliveryDate">Delivery Date</span></dt>
+                <dd>
+                    <span>{{transport.deliveryDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.changingPlaceUnloading">Changing Place Unloading</span></dt>
+                <dd>
+                    <span>{{transport.changingPlaceUnloading}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.comments">Comments</span></dt>
+                <dd>
+                    <span>{{transport.comments}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.driver">Driver</span></dt>
+                <dd>
+                    <div *ngIf="transport.driver">
+                        <a [routerLink]="['/driver', transport.driver?.id, 'view']">{{transport.driver?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.truck">Truck</span></dt>
+                <dd>
+                    <div *ngIf="transport.truck">
+                        <a [routerLink]="['/truck', transport.truck?.id, 'view']">{{transport.truck?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.trailer">Trailer</span></dt>
+                <dd>
+                    <div *ngIf="transport.trailer">
+                        <a [routerLink]="['/trailer', transport.trailer?.id, 'view']">{{transport.trailer?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.factory">Factory</span></dt>
+                <dd>
+                    <div *ngIf="transport.factory">
+                        <a [routerLink]="['/company-factory', transport.factory?.id, 'view']">{{transport.factory?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.transport.comapny">Comapny</span></dt>
+                <dd>
+                    <div *ngIf="transport.comapny">
+                        <a [routerLink]="['/company-main', transport.comapny?.id, 'view']">{{transport.comapny?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/transport', transport.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

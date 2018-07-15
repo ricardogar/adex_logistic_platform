@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="trailer">
+            <h2><span jhiTranslate="adexPlatformApp.trailer.detail.title">Trailer</span> {{trailer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adexPlatformApp.trailer.plate">Plate</span></dt>
+                <dd>
+                    <span>{{trailer.plate}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.trailer.trailerType">Trailer Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'adexPlatformApp.TrailerType.' + trailer.trailerType}}">{{trailer.trailerType}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.trailer.brand">Brand</span></dt>
+                <dd>
+                    <span>{{trailer.brand}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.trailer.productionYear">Production Year</span></dt>
+                <dd>
+                    <span>{{trailer.productionYear}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.trailer.technicalExamDate">Technical Exam Date</span></dt>
+                <dd>
+                    <span>{{trailer.technicalExamDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.trailer.supervisionExamDate">Supervision Exam Date</span></dt>
+                <dd>
+                    <span>{{trailer.supervisionExamDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.trailer.maxCapacity">Max Capacity</span></dt>
+                <dd>
+                    <span>{{trailer.maxCapacity}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/trailer', trailer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+
+{
+    "adexPlatformApp": {
+        "companyFactory" : {
+            "home": {
+                "title": "Company Factories",
+                "createLabel": "Dodaj Company Factory",
+                "createOrEditLabel": "Dodaj lub edytuj: Company Factory",
+                "search": "Szukaj Company Factory"
+            },
+            "created": "Utworzono nowy Company Factory z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Company Factory z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Company Factory z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Company Factory {{ id }}?"
+            },
+            "detail": {
+                "title": "Company Factory"
+            },
+            "city": "City",
+            "postCode": "Post Code",
+            "street": "Street",
+            "houseNumber": "House Number",
+            "flatNumber": "Flat Number",
+            "phoneNumber": "Phone Number",
+            "transport": "Transport",
+            "company": "Company"
+        }
+    }
+}

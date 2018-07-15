@@ -1,0 +1,32 @@
+
+{
+    "adexPlatformApp": {
+        "companyMain" : {
+            "home": {
+                "title": "Company Mains",
+                "createLabel": "Dodaj Company Main",
+                "createOrEditLabel": "Dodaj lub edytuj: Company Main",
+                "search": "Szukaj Company Main"
+            },
+            "created": "Utworzono nowy Company Main z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Company Main z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Company Main z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Company Main {{ id }}?"
+            },
+            "detail": {
+                "title": "Company Main"
+            },
+            "nip": "Nip",
+            "name": "Name",
+            "city": "City",
+            "postCode": "Post Code",
+            "street": "Street",
+            "houseNumber": "House Number",
+            "flatNumber": "Flat Number",
+            "email": "Email",
+            "transport": "Transport",
+            "factory": "Factory"
+        }
+    }
+}

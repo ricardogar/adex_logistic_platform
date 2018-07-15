@@ -1,0 +1,12 @@
+{
+    "adexPlatformApp": {
+        "TrailerType" : {
+            "null": "",
+            "CUARTAINSIDER": "CUARTAINSIDER",
+            "LOWLOADER": "LOWLOADER",
+            "DRY_BULK": "DRY_BULK",
+            "SKELLY": "SKELLY",
+            "TRIPPER": "TRIPPER"
+        }
+    }
+}

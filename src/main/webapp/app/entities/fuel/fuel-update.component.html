@@ -1,0 +1,99 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-fuel-heading" jhiTranslate="adexPlatformApp.fuel.home.createOrEditLabel">Create or edit a Fuel</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!fuel.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="fuel.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.fuel.refuelData" for="field_refuelData">Refuel Data</label>
+                    <div class="input-group">
+                        <input id="field_refuelData" type="text" class="form-control" name="refuelData" ngbDatepicker  #refuelDataDp="ngbDatepicker" [(ngModel)]="fuel.refuelData"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="refuelDataDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.refuelData?.dirty && editForm.controls.refuelData?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.refuelData?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.fuel.amountFuel" for="field_amountFuel">Amount Fuel</label>
+                    <input type="number" class="form-control" name="amountFuel" id="field_amountFuel"
+                        [(ngModel)]="fuel.amountFuel" required/>
+                    <div [hidden]="!(editForm.controls.amountFuel?.dirty && editForm.controls.amountFuel?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.amountFuel?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.amountFuel?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.fuel.kilometersState" for="field_kilometersState">Kilometers State</label>
+                    <input type="number" class="form-control" name="kilometersState" id="field_kilometersState"
+                        [(ngModel)]="fuel.kilometersState" required/>
+                    <div [hidden]="!(editForm.controls.kilometersState?.dirty && editForm.controls.kilometersState?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.kilometersState?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.kilometersState?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.fuel.fuelPrice" for="field_fuelPrice">Fuel Price</label>
+                    <input type="number" class="form-control" name="fuelPrice" id="field_fuelPrice"
+                        [(ngModel)]="fuel.fuelPrice" required/>
+                    <div [hidden]="!(editForm.controls.fuelPrice?.dirty && editForm.controls.fuelPrice?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.fuelPrice?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.fuelPrice?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.fuel.driver" for="field_driver">Driver</label>
+                    <select class="form-control" id="field_driver" name="driver" [(ngModel)]="fuel.driver" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="driverOption.id === fuel.driver?.id ? fuel.driver : driverOption" *ngFor="let driverOption of drivers; trackBy: trackDriverById">{{driverOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.fuel.truck" for="field_truck">Truck</label>
+                    <select class="form-control" id="field_truck" name="truck" [(ngModel)]="fuel.truck" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="truckOption.id === fuel.truck?.id ? fuel.truck : truckOption" *ngFor="let truckOption of trucks; trackBy: trackTruckById">{{truckOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

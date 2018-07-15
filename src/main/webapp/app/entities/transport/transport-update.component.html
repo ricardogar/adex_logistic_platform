@@ -1,0 +1,210 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-transport-heading" jhiTranslate="adexPlatformApp.transport.home.createOrEditLabel">Create or edit a Transport</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!transport.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="transport.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.orderNumber" for="field_orderNumber">Order Number</label>
+                    <input type="text" class="form-control" name="orderNumber" id="field_orderNumber"
+                        [(ngModel)]="transport.orderNumber" required/>
+                    <div [hidden]="!(editForm.controls.orderNumber?.dirty && editForm.controls.orderNumber?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.orderNumber?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.createDate" for="field_createDate">Create Date</label>
+                    <div class="input-group">
+                        <input id="field_createDate" type="text" class="form-control" name="createDate" ngbDatepicker  #createDateDp="ngbDatepicker" [(ngModel)]="transport.createDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="createDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.createDate?.dirty && editForm.controls.createDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.createDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="transport.status" id="field_status"  required>
+                        <option value="LOAD">{{'adexPlatformApp.TransportStatus.LOAD' | translate}}</option>
+                        <option value="UNOLADING">{{'adexPlatformApp.TransportStatus.UNOLADING' | translate}}</option>
+                        <option value="CANCEL">{{'adexPlatformApp.TransportStatus.CANCEL' | translate}}</option>
+                        <option value="COMPLETED">{{'adexPlatformApp.TransportStatus.COMPLETED' | translate}}</option>
+                        <option value="INVOICE">{{'adexPlatformApp.TransportStatus.INVOICE' | translate}}</option>
+                        <option value="PAID">{{'adexPlatformApp.TransportStatus.PAID' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.status?.dirty && editForm.controls.status?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.status?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.city" for="field_city">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                        [(ngModel)]="transport.city" required/>
+                    <div [hidden]="!(editForm.controls.city?.dirty && editForm.controls.city?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.city?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.postCode" for="field_postCode">Post Code</label>
+                    <input type="text" class="form-control" name="postCode" id="field_postCode"
+                        [(ngModel)]="transport.postCode" required/>
+                    <div [hidden]="!(editForm.controls.postCode?.dirty && editForm.controls.postCode?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.postCode?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.street" for="field_street">Street</label>
+                    <input type="text" class="form-control" name="street" id="field_street"
+                        [(ngModel)]="transport.street" required/>
+                    <div [hidden]="!(editForm.controls.street?.dirty && editForm.controls.street?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.street?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.houseNumber" for="field_houseNumber">House Number</label>
+                    <input type="number" class="form-control" name="houseNumber" id="field_houseNumber"
+                        [(ngModel)]="transport.houseNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                        [(ngModel)]="transport.firstName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                        [(ngModel)]="transport.lastName" required/>
+                    <div [hidden]="!(editForm.controls.lastName?.dirty && editForm.controls.lastName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.lastName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                        [(ngModel)]="transport.phoneNumber" required/>
+                    <div [hidden]="!(editForm.controls.phoneNumber?.dirty && editForm.controls.phoneNumber?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.phoneNumber?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.plannedDeliveryDate" for="field_plannedDeliveryDate">Planned Delivery Date</label>
+                    <div class="input-group">
+                        <input id="field_plannedDeliveryDate" type="text" class="form-control" name="plannedDeliveryDate" ngbDatepicker  #plannedDeliveryDateDp="ngbDatepicker" [(ngModel)]="transport.plannedDeliveryDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="plannedDeliveryDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.deliveryDate" for="field_deliveryDate">Delivery Date</label>
+                    <div class="input-group">
+                        <input id="field_deliveryDate" type="text" class="form-control" name="deliveryDate" ngbDatepicker  #deliveryDateDp="ngbDatepicker" [(ngModel)]="transport.deliveryDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="deliveryDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.deliveryDate?.dirty && editForm.controls.deliveryDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.deliveryDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.changingPlaceUnloading" for="field_changingPlaceUnloading">Changing Place Unloading</label>
+                    <input type="checkbox" class="form-control" name="changingPlaceUnloading" id="field_changingPlaceUnloading"
+                        [(ngModel)]="transport.changingPlaceUnloading" />
+                    <div [hidden]="!(editForm.controls.changingPlaceUnloading?.dirty && editForm.controls.changingPlaceUnloading?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.changingPlaceUnloading?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.comments" for="field_comments">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                        [(ngModel)]="transport.comments" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.driver" for="field_driver">Driver</label>
+                    <select class="form-control" id="field_driver" name="driver" [(ngModel)]="transport.driver" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="driverOption.id === transport.driver?.id ? transport.driver : driverOption" *ngFor="let driverOption of drivers; trackBy: trackDriverById">{{driverOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.truck" for="field_truck">Truck</label>
+                    <select class="form-control" id="field_truck" name="truck" [(ngModel)]="transport.truck" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="truckOption.id === transport.truck?.id ? transport.truck : truckOption" *ngFor="let truckOption of trucks; trackBy: trackTruckById">{{truckOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.trailer" for="field_trailer">Trailer</label>
+                    <select class="form-control" id="field_trailer" name="trailer" [(ngModel)]="transport.trailer" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="trailerOption.id === transport.trailer?.id ? transport.trailer : trailerOption" *ngFor="let trailerOption of trailers; trackBy: trackTrailerById">{{trailerOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.factory" for="field_factory">Factory</label>
+                    <select class="form-control" id="field_factory" name="factory" [(ngModel)]="transport.factory" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="companyFactoryOption.id === transport.factory?.id ? transport.factory : companyFactoryOption" *ngFor="let companyFactoryOption of companyfactories; trackBy: trackCompanyFactoryById">{{companyFactoryOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.transport.comapny" for="field_comapny">Comapny</label>
+                    <select class="form-control" id="field_comapny" name="comapny" [(ngModel)]="transport.comapny" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="companyMainOption.id === transport.comapny?.id ? transport.comapny : companyMainOption" *ngFor="let companyMainOption of companymains; trackBy: trackCompanyMainById">{{companyMainOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

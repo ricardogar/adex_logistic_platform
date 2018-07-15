@@ -1,0 +1,140 @@
+entity Driver{
+	pesel String required 
+	city String required
+    postCode String required
+    street String required
+    houseNumber Integer required
+    flatNumber Integer
+    phoneNumber String required
+    medicalExamDate LocalDate required
+    driverLicenceDate LocalDate required
+}
+
+entity Truck{
+	plate String required
+    brand String required
+    productionYear Integer required
+    emissionStandard EmissionStandard required 
+    horsePower Integer required
+    fuelTank Integer required
+	technicalExamDate LocalDate required
+    compressor Boolean required
+    hydraulics Boolean required
+    gps Boolean required
+    internationalLicense Boolean required
+}
+
+entity Trailer{
+	plate String required
+    trailerType TrailerType required
+    brand String required
+    productionYear Integer required
+	technicalExamDate LocalDate required
+    supervisionExamDate LocalDate required
+    maxCapacity Long required
+}
+
+entity Transport{
+	orderNumber String required
+    createDate LocalDate required
+	status TransportStatus required
+    city String required
+    postCode String required
+    street String required
+    houseNumber Integer
+    firstName String 
+    lastName String required
+    phoneNumber String required
+    plannedDeliveryDate LocalDate
+    deliveryDate LocalDate required
+    changingPlaceUnloading Boolean required
+    comments String
+}
+
+entity CompanyMain{
+	nip String required
+    name String required
+    city String required
+    postCode String required
+    street String required
+    houseNumber Integer required
+    flatNumber Integer
+    email String
+}
+
+entity CompanyFactory{
+	city String required
+    postCode String required
+    street String required
+    houseNumber Integer required
+    flatNumber Integer
+    phoneNumber String
+}
+
+relationship OneToOne{
+    Driver{user} to User{driver}
+    Truck{trailer} to Trailer{truck}
+    Driver{truck} to Truck{driver}
+}
+
+relationship OneToMany{
+	Driver{transport} to Transport{driver}
+    Truck{transport} to Transport{truck}
+    Trailer{transport} to Transport{trailer}
+    CompanyFactory{transport} to Transport{factory}
+    CompanyMain{transport} to Transport{comapny}
+    CompanyMain{factory} to CompanyFactory{company}
+}
+
+relationship ManyToOne{
+	Fuel{driver} to Driver{fuel}
+    Fuel{truck} to Truck{fuel}
+    Distance{driver} to Driver{distance}
+    Distance{truck} to Truck{distance}
+}
+
+
+entity Distance{
+	startCity String required
+    startDay LocalDate required
+  	startKilometers Long required
+    endCity String required
+    endDay LocalDate required
+    endKilometers Long required
+}
+
+entity Fuel{
+	refuelData LocalDate required
+    amountFuel Long required
+    kilometersState Long required
+    fuelPrice Double required
+
+}
+
+enum TrailerType{
+	CUARTAINSIDER,
+    LOWLOADER,
+    DRY_BULK,
+    SKELLY,
+    TRIPPER
+}
+
+enum TransportStatus{
+	LOAD,
+    UNOLADING,
+    CANCEL,
+    COMPLETED,
+    INVOICE,
+    PAID
+}
+
+enum EmissionStandard{
+    EURO_3,
+    EURO_4,
+    EURO_5,
+	EURO_6,
+    EURO_7
+}
+
+service all with serviceImpl
+paginate all with infinite-scroll

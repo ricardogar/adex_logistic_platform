@@ -1,0 +1,206 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-truck-heading" jhiTranslate="adexPlatformApp.truck.home.createOrEditLabel">Create or edit a
+                Truck</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.truck.plate"
+                           for="field_plate">Plate</label>
+                    <input type="text" class="form-control" name="plate" id="field_plate"
+                           [(ngModel)]="truck.plate" required/>
+                    <div [hidden]="!(editForm.controls.plate?.dirty && editForm.controls.plate?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.plate?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.truck.brand"
+                           for="field_brand">Brand</label>
+                    <input type="text" class="form-control" name="brand" id="field_brand"
+                           [(ngModel)]="truck.brand" required/>
+                    <div [hidden]="!(editForm.controls.brand?.dirty && editForm.controls.brand?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.brand?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.truck.productionYear"
+                           for="field_productionYear">Production Year</label>
+                    <input type="number" class="form-control" name="productionYear" id="field_productionYear"
+                           [(ngModel)]="truck.productionYear" required/>
+                    <div
+                        [hidden]="!(editForm.controls.productionYear?.dirty && editForm.controls.productionYear?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.productionYear?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.productionYear?.errors?.number"
+                               jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.truck.emissionStandard"
+                           for="field_emissionStandard">Emission Standard</label>
+                    <select class="form-control" name="emissionStandard" [(ngModel)]="truck.emissionStandard"
+                            id="field_emissionStandard" required>
+                        <option value="EURO_3">{{'adexPlatformApp.EmissionStandard.EURO_3' | translate}}</option>
+                        <option value="EURO_4">{{'adexPlatformApp.EmissionStandard.EURO_4' | translate}}</option>
+                        <option value="EURO_5">{{'adexPlatformApp.EmissionStandard.EURO_5' | translate}}</option>
+                        <option value="EURO_6">{{'adexPlatformApp.EmissionStandard.EURO_6' | translate}}</option>
+                        <option value="EURO_7">{{'adexPlatformApp.EmissionStandard.EURO_7' | translate}}</option>
+                    </select>
+                    <div
+                        [hidden]="!(editForm.controls.emissionStandard?.dirty && editForm.controls.emissionStandard?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.emissionStandard?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.truck.horsePower"
+                           for="field_horsePower">Horse Power</label>
+                    <input type="number" class="form-control" name="horsePower" id="field_horsePower"
+                           [(ngModel)]="truck.horsePower" required/>
+                    <div [hidden]="!(editForm.controls.horsePower?.dirty && editForm.controls.horsePower?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.horsePower?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.horsePower?.errors?.number"
+                               jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.truck.fuelTank"
+                           for="field_fuelTank">Fuel Tank</label>
+                    <input type="number" class="form-control" name="fuelTank" id="field_fuelTank"
+                           [(ngModel)]="truck.fuelTank" required/>
+                    <div [hidden]="!(editForm.controls.fuelTank?.dirty && editForm.controls.fuelTank?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.fuelTank?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.fuelTank?.errors?.number"
+                               jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.truck.technicalExamDate"
+                           for="field_technicalExamDate">Technical Exam Date</label>
+                    <div class="input-group">
+                        <input id="field_technicalExamDate" type="text" class="form-control" name="technicalExamDate"
+                               ngbDatepicker #technicalExamDateDp="ngbDatepicker" [(ngModel)]="truck.technicalExamDate"
+                               required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="technicalExamDateDp.toggle()"><fa-icon
+                                [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div
+                        [hidden]="!(editForm.controls.technicalExamDate?.dirty && editForm.controls.technicalExamDate?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.technicalExamDate?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.truck.compressor"
+                           for="field_compressor">Compressor</label>
+                    <input type="checkbox" class="form-control" name="compressor" id="field_compressor"
+                           [(ngModel)]="truck.compressor"/>
+                    <div [hidden]="!(editForm.controls.compressor?.dirty && editForm.controls.compressor?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.compressor?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.truck.hydraulics"
+                           for="field_hydraulics">Hydraulics</label>
+                    <input type="checkbox" class="form-control" name="hydraulics" id="field_hydraulics"
+                           [(ngModel)]="truck.hydraulics"/>
+                    <div [hidden]="!(editForm.controls.hydraulics?.dirty && editForm.controls.hydraulics?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.hydraulics?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.truck.gps"
+                           for="field_gps">Gps</label>
+                    <input type="checkbox" class="form-control" name="gps" id="field_gps"
+                           [(ngModel)]="truck.gps"/>
+                    <div [hidden]="!(editForm.controls.gps?.dirty && editForm.controls.gps?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.gps?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.truck.internationalLicense"
+                           for="field_internationalLicense">International License</label>
+                    <input type="checkbox" class="form-control" name="internationalLicense"
+                           id="field_internationalLicense"
+                           [(ngModel)]="truck.internationalLicense"/>
+                    <div
+                        [hidden]="!(editForm.controls.internationalLicense?.dirty && editForm.controls.internationalLicense?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.internationalLicense?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.truck.trailer" for="field_trailer">Trailer</label>
+                    <select class="form-control" id="field_trailer" name="trailer" [(ngModel)]="truck.trailer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="trailerOption.id === truck.trailer?.id ? truck.trailer : trailerOption"
+                                *ngFor="let trailerOption of trailers; trackBy: trackTrailerById">{{trailerOption.id}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

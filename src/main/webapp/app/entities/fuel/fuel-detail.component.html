@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fuel">
+            <h2><span jhiTranslate="adexPlatformApp.fuel.detail.title">Fuel</span> {{fuel.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adexPlatformApp.fuel.refuelData">Refuel Data</span></dt>
+                <dd>
+                    <span>{{fuel.refuelData}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.fuel.amountFuel">Amount Fuel</span></dt>
+                <dd>
+                    <span>{{fuel.amountFuel}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.fuel.kilometersState">Kilometers State</span></dt>
+                <dd>
+                    <span>{{fuel.kilometersState}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.fuel.fuelPrice">Fuel Price</span></dt>
+                <dd>
+                    <span>{{fuel.fuelPrice}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.fuel.driver">Driver</span></dt>
+                <dd>
+                    <div *ngIf="fuel.driver">
+                        <a [routerLink]="['/driver', fuel.driver?.id, 'view']">{{fuel.driver?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.fuel.truck">Truck</span></dt>
+                <dd>
+                    <div *ngIf="fuel.truck">
+                        <a [routerLink]="['/truck', fuel.truck?.id, 'view']">{{fuel.truck?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fuel', fuel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

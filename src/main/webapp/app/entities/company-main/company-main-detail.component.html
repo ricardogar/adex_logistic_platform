@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="companyMain">
+            <h2><span jhiTranslate="adexPlatformApp.companyMain.detail.title">Company Main</span> {{companyMain.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adexPlatformApp.companyMain.nip">Nip</span></dt>
+                <dd>
+                    <span>{{companyMain.nip}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyMain.name">Name</span></dt>
+                <dd>
+                    <span>{{companyMain.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyMain.city">City</span></dt>
+                <dd>
+                    <span>{{companyMain.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyMain.postCode">Post Code</span></dt>
+                <dd>
+                    <span>{{companyMain.postCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyMain.street">Street</span></dt>
+                <dd>
+                    <span>{{companyMain.street}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyMain.houseNumber">House Number</span></dt>
+                <dd>
+                    <span>{{companyMain.houseNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyMain.flatNumber">Flat Number</span></dt>
+                <dd>
+                    <span>{{companyMain.flatNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyMain.email">Email</span></dt>
+                <dd>
+                    <span>{{companyMain.email}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/company-main', companyMain.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

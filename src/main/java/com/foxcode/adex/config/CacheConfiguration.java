@@ -41,6 +41,24 @@ public class CacheConfiguration {
             cm.createCache(com.foxcode.adex.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.foxcode.adex.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.foxcode.adex.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Driver.class.getName(), jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Driver.class.getName() + ".transports", jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Driver.class.getName() + ".fuels", jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Driver.class.getName() + ".distances", jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Truck.class.getName(), jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Truck.class.getName() + ".transports", jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Truck.class.getName() + ".fuels", jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Truck.class.getName() + ".distances", jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Trailer.class.getName(), jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Trailer.class.getName() + ".transports", jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Transport.class.getName(), jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.CompanyMain.class.getName(), jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.CompanyMain.class.getName() + ".transports", jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.CompanyMain.class.getName() + ".factories", jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.CompanyFactory.class.getName(), jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.CompanyFactory.class.getName() + ".transports", jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Distance.class.getName(), jcacheConfiguration);
+            cm.createCache(com.foxcode.adex.domain.Fuel.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

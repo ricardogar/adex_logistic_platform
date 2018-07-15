@@ -1,0 +1,79 @@
+{
+    "name": "Trailer",
+    "fields": [
+        {
+            "fieldName": "plate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "trailerType",
+            "fieldType": "TrailerType",
+            "fieldValues": "CUARTAINSIDER,LOWLOADER,DRY_BULK,SKELLY,TRIPPER",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "brand",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "productionYear",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "technicalExamDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "supervisionExamDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "maxCapacity",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "transport",
+            "otherEntityName": "transport",
+            "otherEntityRelationshipName": "trailer"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "truck",
+            "otherEntityName": "truck",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "trailer"
+        }
+    ],
+    "changelogDate": "20180715191811",
+    "entityTableName": "trailer",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

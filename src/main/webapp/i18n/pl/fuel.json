@@ -1,0 +1,28 @@
+
+{
+    "adexPlatformApp": {
+        "fuel" : {
+            "home": {
+                "title": "Fuels",
+                "createLabel": "Dodaj Fuel",
+                "createOrEditLabel": "Dodaj lub edytuj: Fuel",
+                "search": "Szukaj Fuel"
+            },
+            "created": "Utworzono nowy Fuel z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Fuel z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Fuel z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Fuel {{ id }}?"
+            },
+            "detail": {
+                "title": "Fuel"
+            },
+            "refuelData": "Refuel Data",
+            "amountFuel": "Amount Fuel",
+            "kilometersState": "Kilometers State",
+            "fuelPrice": "Fuel Price",
+            "driver": "Driver",
+            "truck": "Truck"
+        }
+    }
+}

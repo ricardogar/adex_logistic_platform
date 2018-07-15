@@ -1,0 +1,36 @@
+
+{
+    "adexPlatformApp": {
+        "driver" : {
+            "home": {
+                "title": "Drivers",
+                "createLabel": "Dodaj Driver",
+                "createOrEditLabel": "Dodaj lub edytuj: Driver",
+                "search": "Szukaj Driver"
+            },
+            "created": "Utworzono nowy Driver z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Driver z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Driver z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Driver {{ id }}?"
+            },
+            "detail": {
+                "title": "Driver"
+            },
+            "pesel": "Pesel",
+            "city": "City",
+            "postCode": "Post Code",
+            "street": "Street",
+            "houseNumber": "House Number",
+            "flatNumber": "Flat Number",
+            "phoneNumber": "Phone Number",
+            "medicalExamDate": "Medical Exam Date",
+            "driverLicenceDate": "Driver Licence Date",
+            "user": "User",
+            "truck": "Truck",
+            "transport": "Transport",
+            "fuel": "Fuel",
+            "distance": "Distance"
+        }
+    }
+}

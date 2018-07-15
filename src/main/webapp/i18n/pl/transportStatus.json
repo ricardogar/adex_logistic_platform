@@ -1,0 +1,13 @@
+{
+    "adexPlatformApp": {
+        "TransportStatus" : {
+            "null": "",
+            "LOAD": "LOAD",
+            "UNOLADING": "UNOLADING",
+            "CANCEL": "CANCEL",
+            "COMPLETED": "COMPLETED",
+            "INVOICE": "INVOICE",
+            "PAID": "PAID"
+        }
+    }
+}

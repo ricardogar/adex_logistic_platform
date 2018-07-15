@@ -1,0 +1,41 @@
+
+{
+    "adexPlatformApp": {
+        "transport" : {
+            "home": {
+                "title": "Transports",
+                "createLabel": "Dodaj Transport",
+                "createOrEditLabel": "Dodaj lub edytuj: Transport",
+                "search": "Szukaj Transport"
+            },
+            "created": "Utworzono nowy Transport z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Transport z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Transport z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Transport {{ id }}?"
+            },
+            "detail": {
+                "title": "Transport"
+            },
+            "orderNumber": "Order Number",
+            "createDate": "Create Date",
+            "status": "Status",
+            "city": "City",
+            "postCode": "Post Code",
+            "street": "Street",
+            "houseNumber": "House Number",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "phoneNumber": "Phone Number",
+            "plannedDeliveryDate": "Planned Delivery Date",
+            "deliveryDate": "Delivery Date",
+            "changingPlaceUnloading": "Changing Place Unloading",
+            "comments": "Comments",
+            "driver": "Driver",
+            "truck": "Truck",
+            "trailer": "Trailer",
+            "factory": "Factory",
+            "comapny": "Comapny"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+
+{
+    "adexPlatformApp": {
+        "distance" : {
+            "home": {
+                "title": "Distances",
+                "createLabel": "Dodaj Distance",
+                "createOrEditLabel": "Dodaj lub edytuj: Distance",
+                "search": "Szukaj Distance"
+            },
+            "created": "Utworzono nowy Distance z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Distance z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Distance z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Distance {{ id }}?"
+            },
+            "detail": {
+                "title": "Distance"
+            },
+            "startCity": "Start City",
+            "startDay": "Start Day",
+            "startKilometers": "Start Kilometers",
+            "endCity": "End City",
+            "endDay": "End Day",
+            "endKilometers": "End Kilometers",
+            "driver": "Driver",
+            "truck": "Truck"
+        }
+    }
+}

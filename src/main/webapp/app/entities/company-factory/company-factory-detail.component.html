@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="companyFactory">
+            <h2><span jhiTranslate="adexPlatformApp.companyFactory.detail.title">Company Factory</span> {{companyFactory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adexPlatformApp.companyFactory.city">City</span></dt>
+                <dd>
+                    <span>{{companyFactory.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyFactory.postCode">Post Code</span></dt>
+                <dd>
+                    <span>{{companyFactory.postCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyFactory.street">Street</span></dt>
+                <dd>
+                    <span>{{companyFactory.street}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyFactory.houseNumber">House Number</span></dt>
+                <dd>
+                    <span>{{companyFactory.houseNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyFactory.flatNumber">Flat Number</span></dt>
+                <dd>
+                    <span>{{companyFactory.flatNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyFactory.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{companyFactory.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.companyFactory.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="companyFactory.company">
+                        <a [routerLink]="['/company-main', companyFactory.company?.id, 'view']">{{companyFactory.company?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/company-factory', companyFactory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

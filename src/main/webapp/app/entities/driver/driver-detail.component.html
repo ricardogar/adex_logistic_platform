@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="driver">
+            <h2> {{driver.user?.firstName}} {{driver.user?.lastName}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adexPlatformApp.driver.pesel">Pesel</span></dt>
+                <dd>
+                    <span>{{driver.pesel}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.driver.city">City</span></dt>
+                <dd>
+                    <span>{{driver.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.driver.postCode">Post Code</span></dt>
+                <dd>
+                    <span>{{driver.postCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.driver.street">Street</span></dt>
+                <dd>
+                    <span>{{driver.street}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.driver.houseNumber">House Number</span></dt>
+                <dd>
+                    <span>{{driver.houseNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.driver.flatNumber">Flat Number</span></dt>
+                <dd>
+                    <span>{{driver.flatNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.driver.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{driver.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.driver.medicalExamDate">Medical Exam Date</span></dt>
+                <dd>
+                    <span>{{driver.medicalExamDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.driver.driverLicenceDate">Driver Licence Date</span></dt>
+                <dd>
+                    <span>{{driver.driverLicenceDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.driver.truck">Truck</span></dt>
+                <dd>
+                    <div *ngIf="driver.truck">
+                        <a [routerLink]="['/truck', driver.truck?.id, 'view']">{{driver.truck?.brand}} {{driver.truck?.plate | uppercase}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/driver', driver.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

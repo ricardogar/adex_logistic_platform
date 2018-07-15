@@ -5,6 +5,26 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <!--<include file="config/liquibase/changelog/20180715191809_added_entity_Driver.xml" relativeToChangelogFile="false"/>-->
+    <!--<include file="config/liquibase/changelog/20180715191810_added_entity_Truck.xml" relativeToChangelogFile="false"/>-->
+    <!--<include file="config/liquibase/changelog/20180715191811_added_entity_Trailer.xml" relativeToChangelogFile="false"/>-->
+    <!--<include file="config/liquibase/changelog/20180715191812_added_entity_Transport.xml" relativeToChangelogFile="false"/>-->
+    <!--<include file="config/liquibase/changelog/20180715191813_added_entity_CompanyMain.xml" relativeToChangelogFile="false"/>-->
+    <!--<include file="config/liquibase/changelog/20180715191814_added_entity_CompanyFactory.xml" relativeToChangelogFile="false"/>-->
+    <!--<include file="config/liquibase/changelog/20180715191815_added_entity_Distance.xml" relativeToChangelogFile="false"/>-->
+    <!--<include file="config/liquibase/changelog/20180715191816_added_entity_Fuel.xml" relativeToChangelogFile="false"/>-->
+    <!--&lt;!&ndash; jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here &ndash;&gt;-->
+    <!--<include file="config/liquibase/changelog/20180715191809_added_entity_constraints_Driver.xml" relativeToChangelogFile="false"/>-->
+    <!--<include file="config/liquibase/changelog/20180715191810_added_entity_constraints_Truck.xml" relativeToChangelogFile="false"/>-->
+    <!--<include file="config/liquibase/changelog/20180715191812_added_entity_constraints_Transport.xml" relativeToChangelogFile="false"/>-->
+    <!--<include file="config/liquibase/changelog/20180715191814_added_entity_constraints_CompanyFactory.xml" relativeToChangelogFile="false"/>-->
+    <!--<include file="config/liquibase/changelog/20180715191815_added_entity_constraints_Distance.xml" relativeToChangelogFile="false"/>-->
+    <!--<include file="config/liquibase/changelog/20180715191816_added_entity_constraints_Fuel.xml" relativeToChangelogFile="false"/>-->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+
+    <changeSet id="zmiana kolumny w truck" author="dawid branicki">
+        <sql>
+            alter table public.truck alter column emission_standard type varchar;
+        </sql>
+    </changeSet>
 </databaseChangeLog>

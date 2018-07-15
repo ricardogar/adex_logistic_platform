@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="distance">
+            <h2><span jhiTranslate="adexPlatformApp.distance.detail.title">Distance</span> {{distance.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adexPlatformApp.distance.startCity">Start City</span></dt>
+                <dd>
+                    <span>{{distance.startCity}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.distance.startDay">Start Day</span></dt>
+                <dd>
+                    <span>{{distance.startDay}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.distance.startKilometers">Start Kilometers</span></dt>
+                <dd>
+                    <span>{{distance.startKilometers}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.distance.endCity">End City</span></dt>
+                <dd>
+                    <span>{{distance.endCity}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.distance.endDay">End Day</span></dt>
+                <dd>
+                    <span>{{distance.endDay}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.distance.endKilometers">End Kilometers</span></dt>
+                <dd>
+                    <span>{{distance.endKilometers}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.distance.driver">Driver</span></dt>
+                <dd>
+                    <div *ngIf="distance.driver">
+                        <a [routerLink]="['/driver', distance.driver?.id, 'view']">{{distance.driver?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.distance.truck">Truck</span></dt>
+                <dd>
+                    <div *ngIf="distance.truck">
+                        <a [routerLink]="['/truck', distance.truck?.id, 'view']">{{distance.truck?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/distance', distance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

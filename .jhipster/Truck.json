@@ -1,0 +1,127 @@
+{
+    "name": "Truck",
+    "fields": [
+        {
+            "fieldName": "plate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "brand",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "productionYear",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "emissionStandard",
+            "fieldType": "EmissionStandard",
+            "fieldValues": "EURO_3,EURO_4,EURO_5,EURO_6,EURO_7",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "horsePower",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fuelTank",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "technicalExamDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "compressor",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "hydraulics",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "gps",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "internationalLicense",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "trailer",
+            "otherEntityName": "trailer",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "truck"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "transport",
+            "otherEntityName": "transport",
+            "otherEntityRelationshipName": "truck"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "driver",
+            "otherEntityName": "driver",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "truck"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "fuel",
+            "otherEntityName": "fuel",
+            "otherEntityRelationshipName": "truck"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "distance",
+            "otherEntityName": "distance",
+            "otherEntityRelationshipName": "truck"
+        }
+    ],
+    "changelogDate": "20180715191810",
+    "entityTableName": "truck",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

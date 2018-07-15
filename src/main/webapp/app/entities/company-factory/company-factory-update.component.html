@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-company-factory-heading" jhiTranslate="adexPlatformApp.companyFactory.home.createOrEditLabel">Create or edit a Company Factory</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!companyFactory.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="companyFactory.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.companyFactory.city" for="field_city">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                        [(ngModel)]="companyFactory.city" required/>
+                    <div [hidden]="!(editForm.controls.city?.dirty && editForm.controls.city?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.city?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.companyFactory.postCode" for="field_postCode">Post Code</label>
+                    <input type="text" class="form-control" name="postCode" id="field_postCode"
+                        [(ngModel)]="companyFactory.postCode" required/>
+                    <div [hidden]="!(editForm.controls.postCode?.dirty && editForm.controls.postCode?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.postCode?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.companyFactory.street" for="field_street">Street</label>
+                    <input type="text" class="form-control" name="street" id="field_street"
+                        [(ngModel)]="companyFactory.street" required/>
+                    <div [hidden]="!(editForm.controls.street?.dirty && editForm.controls.street?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.street?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.companyFactory.houseNumber" for="field_houseNumber">House Number</label>
+                    <input type="number" class="form-control" name="houseNumber" id="field_houseNumber"
+                        [(ngModel)]="companyFactory.houseNumber" required/>
+                    <div [hidden]="!(editForm.controls.houseNumber?.dirty && editForm.controls.houseNumber?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.houseNumber?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.houseNumber?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.companyFactory.flatNumber" for="field_flatNumber">Flat Number</label>
+                    <input type="number" class="form-control" name="flatNumber" id="field_flatNumber"
+                        [(ngModel)]="companyFactory.flatNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.companyFactory.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                        [(ngModel)]="companyFactory.phoneNumber" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.companyFactory.company" for="field_company">Company</label>
+                    <select class="form-control" id="field_company" name="company" [(ngModel)]="companyFactory.company" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="companyMainOption.id === companyFactory.company?.id ? companyFactory.company : companyMainOption" *ngFor="let companyMainOption of companymains; trackBy: trackCompanyMainById">{{companyMainOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

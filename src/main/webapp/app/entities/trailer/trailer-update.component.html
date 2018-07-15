@@ -1,0 +1,124 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-trailer-heading" jhiTranslate="adexPlatformApp.trailer.home.createOrEditLabel">Create or edit a Trailer</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!trailer.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="trailer.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.trailer.plate" for="field_plate">Plate</label>
+                    <input type="text" class="form-control" name="plate" id="field_plate"
+                        [(ngModel)]="trailer.plate" required/>
+                    <div [hidden]="!(editForm.controls.plate?.dirty && editForm.controls.plate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.plate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.trailer.trailerType" for="field_trailerType">Trailer Type</label>
+                    <select class="form-control" name="trailerType" [(ngModel)]="trailer.trailerType" id="field_trailerType"  required>
+                        <option value="CUARTAINSIDER">{{'adexPlatformApp.TrailerType.CUARTAINSIDER' | translate}}</option>
+                        <option value="LOWLOADER">{{'adexPlatformApp.TrailerType.LOWLOADER' | translate}}</option>
+                        <option value="DRY_BULK">{{'adexPlatformApp.TrailerType.DRY_BULK' | translate}}</option>
+                        <option value="SKELLY">{{'adexPlatformApp.TrailerType.SKELLY' | translate}}</option>
+                        <option value="TRIPPER">{{'adexPlatformApp.TrailerType.TRIPPER' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.trailerType?.dirty && editForm.controls.trailerType?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.trailerType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.trailer.brand" for="field_brand">Brand</label>
+                    <input type="text" class="form-control" name="brand" id="field_brand"
+                        [(ngModel)]="trailer.brand" required/>
+                    <div [hidden]="!(editForm.controls.brand?.dirty && editForm.controls.brand?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.brand?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.trailer.productionYear" for="field_productionYear">Production Year</label>
+                    <input type="number" class="form-control" name="productionYear" id="field_productionYear"
+                        [(ngModel)]="trailer.productionYear" required/>
+                    <div [hidden]="!(editForm.controls.productionYear?.dirty && editForm.controls.productionYear?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.productionYear?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.productionYear?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.trailer.technicalExamDate" for="field_technicalExamDate">Technical Exam Date</label>
+                    <div class="input-group">
+                        <input id="field_technicalExamDate" type="text" class="form-control" name="technicalExamDate" ngbDatepicker  #technicalExamDateDp="ngbDatepicker" [(ngModel)]="trailer.technicalExamDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="technicalExamDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.technicalExamDate?.dirty && editForm.controls.technicalExamDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.technicalExamDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.trailer.supervisionExamDate" for="field_supervisionExamDate">Supervision Exam Date</label>
+                    <div class="input-group">
+                        <input id="field_supervisionExamDate" type="text" class="form-control" name="supervisionExamDate" ngbDatepicker  #supervisionExamDateDp="ngbDatepicker" [(ngModel)]="trailer.supervisionExamDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="supervisionExamDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.supervisionExamDate?.dirty && editForm.controls.supervisionExamDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.supervisionExamDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.trailer.maxCapacity" for="field_maxCapacity">Max Capacity</label>
+                    <input type="number" class="form-control" name="maxCapacity" id="field_maxCapacity"
+                        [(ngModel)]="trailer.maxCapacity" required/>
+                    <div [hidden]="!(editForm.controls.maxCapacity?.dirty && editForm.controls.maxCapacity?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.maxCapacity?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.maxCapacity?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

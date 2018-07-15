@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="truck">
+            <h2><span jhiTranslate="adexPlatformApp.truck.detail.title">Truck</span> {{truck.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adexPlatformApp.truck.plate">Plate</span></dt>
+                <dd>
+                    <span>{{truck.plate}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.truck.brand">Brand</span></dt>
+                <dd>
+                    <span>{{truck.brand}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.truck.productionYear">Production Year</span></dt>
+                <dd>
+                    <span>{{truck.productionYear}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.truck.emissionStandard">Emission Standard</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'adexPlatformApp.EmissionStandard.' + truck.emissionStandard}}">{{truck.emissionStandard}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.truck.horsePower">Horse Power</span></dt>
+                <dd>
+                    <span>{{truck.horsePower}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.truck.fuelTank">Fuel Tank</span></dt>
+                <dd>
+                    <span>{{truck.fuelTank}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.truck.technicalExamDate">Technical Exam Date</span></dt>
+                <dd>
+                    <span>{{truck.technicalExamDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.truck.compressor">Compressor</span></dt>
+                <dd>
+                    <span>{{truck.compressor}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.truck.hydraulics">Hydraulics</span></dt>
+                <dd>
+                    <span>{{truck.hydraulics}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.truck.gps">Gps</span></dt>
+                <dd>
+                    <span>{{truck.gps}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.truck.internationalLicense">International License</span></dt>
+                <dd>
+                    <span>{{truck.internationalLicense}}</span>
+                </dd>
+                <dt><span jhiTranslate="adexPlatformApp.truck.trailer">Trailer</span></dt>
+                <dd>
+                    <div *ngIf="truck.trailer">
+                        <a [routerLink]="['/trailer', truck.trailer?.id, 'view']">{{truck.trailer?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/truck', truck.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

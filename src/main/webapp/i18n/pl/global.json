@@ -7,6 +7,14 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Encje",
+                "driver": "Driver",
+                "truck": "Truck",
+                "trailer": "Trailer",
+                "transport": "Transport",
+                "companyMain": "Company Main",
+                "companyFactory": "Company Factory",
+                "distance": "Distance",
+                "fuel": "Fuel",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

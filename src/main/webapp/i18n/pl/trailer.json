@@ -1,0 +1,31 @@
+
+{
+    "adexPlatformApp": {
+        "trailer" : {
+            "home": {
+                "title": "Trailers",
+                "createLabel": "Dodaj Trailer",
+                "createOrEditLabel": "Dodaj lub edytuj: Trailer",
+                "search": "Szukaj Trailer"
+            },
+            "created": "Utworzono nowy Trailer z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Trailer z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Trailer z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Trailer {{ id }}?"
+            },
+            "detail": {
+                "title": "Trailer"
+            },
+            "plate": "Plate",
+            "trailerType": "Trailer Type",
+            "brand": "Brand",
+            "productionYear": "Production Year",
+            "technicalExamDate": "Technical Exam Date",
+            "supervisionExamDate": "Supervision Exam Date",
+            "maxCapacity": "Max Capacity",
+            "transport": "Transport",
+            "truck": "Truck"
+        }
+    }
+}

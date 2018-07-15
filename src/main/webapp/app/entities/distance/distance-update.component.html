@@ -1,0 +1,122 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-distance-heading" jhiTranslate="adexPlatformApp.distance.home.createOrEditLabel">Create or edit a Distance</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!distance.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="distance.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.distance.startCity" for="field_startCity">Start City</label>
+                    <input type="text" class="form-control" name="startCity" id="field_startCity"
+                        [(ngModel)]="distance.startCity" required/>
+                    <div [hidden]="!(editForm.controls.startCity?.dirty && editForm.controls.startCity?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.startCity?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.distance.startDay" for="field_startDay">Start Day</label>
+                    <div class="input-group">
+                        <input id="field_startDay" type="text" class="form-control" name="startDay" ngbDatepicker  #startDayDp="ngbDatepicker" [(ngModel)]="distance.startDay"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="startDayDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.startDay?.dirty && editForm.controls.startDay?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.startDay?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.distance.startKilometers" for="field_startKilometers">Start Kilometers</label>
+                    <input type="number" class="form-control" name="startKilometers" id="field_startKilometers"
+                        [(ngModel)]="distance.startKilometers" required/>
+                    <div [hidden]="!(editForm.controls.startKilometers?.dirty && editForm.controls.startKilometers?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.startKilometers?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.startKilometers?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.distance.endCity" for="field_endCity">End City</label>
+                    <input type="text" class="form-control" name="endCity" id="field_endCity"
+                        [(ngModel)]="distance.endCity" required/>
+                    <div [hidden]="!(editForm.controls.endCity?.dirty && editForm.controls.endCity?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.endCity?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.distance.endDay" for="field_endDay">End Day</label>
+                    <div class="input-group">
+                        <input id="field_endDay" type="text" class="form-control" name="endDay" ngbDatepicker  #endDayDp="ngbDatepicker" [(ngModel)]="distance.endDay"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="endDayDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.endDay?.dirty && editForm.controls.endDay?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.endDay?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.distance.endKilometers" for="field_endKilometers">End Kilometers</label>
+                    <input type="number" class="form-control" name="endKilometers" id="field_endKilometers"
+                        [(ngModel)]="distance.endKilometers" required/>
+                    <div [hidden]="!(editForm.controls.endKilometers?.dirty && editForm.controls.endKilometers?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.endKilometers?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.endKilometers?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.distance.driver" for="field_driver">Driver</label>
+                    <select class="form-control" id="field_driver" name="driver" [(ngModel)]="distance.driver" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="driverOption.id === distance.driver?.id ? distance.driver : driverOption" *ngFor="let driverOption of drivers; trackBy: trackDriverById">{{driverOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adexPlatformApp.distance.truck" for="field_truck">Truck</label>
+                    <select class="form-control" id="field_truck" name="truck" [(ngModel)]="distance.truck" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="truckOption.id === distance.truck?.id ? distance.truck : truckOption" *ngFor="let truckOption of trucks; trackBy: trackTruckById">{{truckOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

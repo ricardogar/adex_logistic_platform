@@ -1,0 +1,125 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="adexPlatformApp.transport.home.title">Transports</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-transport" [routerLink]="['/transport/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="adexPlatformApp.transport.home.createLabel">
+            Create new Transport
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'adexPlatformApp.transport.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="transports">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="orderNumber"><span jhiTranslate="adexPlatformApp.transport.orderNumber">Order Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="createDate"><span jhiTranslate="adexPlatformApp.transport.createDate">Create Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span jhiTranslate="adexPlatformApp.transport.status">Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="city"><span jhiTranslate="adexPlatformApp.transport.city">City</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="postCode"><span jhiTranslate="adexPlatformApp.transport.postCode">Post Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="street"><span jhiTranslate="adexPlatformApp.transport.street">Street</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="houseNumber"><span jhiTranslate="adexPlatformApp.transport.houseNumber">House Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="firstName"><span jhiTranslate="adexPlatformApp.transport.firstName">First Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lastName"><span jhiTranslate="adexPlatformApp.transport.lastName">Last Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phoneNumber"><span jhiTranslate="adexPlatformApp.transport.phoneNumber">Phone Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="plannedDeliveryDate"><span jhiTranslate="adexPlatformApp.transport.plannedDeliveryDate">Planned Delivery Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="deliveryDate"><span jhiTranslate="adexPlatformApp.transport.deliveryDate">Delivery Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="changingPlaceUnloading"><span jhiTranslate="adexPlatformApp.transport.changingPlaceUnloading">Changing Place Unloading</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="comments"><span jhiTranslate="adexPlatformApp.transport.comments">Comments</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="driver.id"><span jhiTranslate="adexPlatformApp.transport.driver">Driver</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="truck.id"><span jhiTranslate="adexPlatformApp.transport.truck">Truck</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="trailer.id"><span jhiTranslate="adexPlatformApp.transport.trailer">Trailer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="factory.id"><span jhiTranslate="adexPlatformApp.transport.factory">Factory</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="comapny.id"><span jhiTranslate="adexPlatformApp.transport.comapny">Comapny</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let transport of transports ;trackBy: trackId">
+                <td><a [routerLink]="['/transport', transport.id, 'view' ]">{{transport.id}}</a></td>
+                <td>{{transport.orderNumber}}</td>
+                <td>{{transport.createDate | date:'mediumDate'}}</td>
+                <td jhiTranslate="{{'adexPlatformApp.TransportStatus.' + transport.status}}">{{transport.status}}</td>
+                <td>{{transport.city}}</td>
+                <td>{{transport.postCode}}</td>
+                <td>{{transport.street}}</td>
+                <td>{{transport.houseNumber}}</td>
+                <td>{{transport.firstName}}</td>
+                <td>{{transport.lastName}}</td>
+                <td>{{transport.phoneNumber}}</td>
+                <td>{{transport.plannedDeliveryDate | date:'mediumDate'}}</td>
+                <td>{{transport.deliveryDate | date:'mediumDate'}}</td>
+                <td>{{transport.changingPlaceUnloading}}</td>
+                <td>{{transport.comments}}</td>
+                <td>
+                    <div *ngIf="transport.driver">
+                        <a [routerLink]="['../driver', transport.driver?.id, 'view' ]" >{{transport.driver?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="transport.truck">
+                        <a [routerLink]="['../truck', transport.truck?.id, 'view' ]" >{{transport.truck?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="transport.trailer">
+                        <a [routerLink]="['../trailer', transport.trailer?.id, 'view' ]" >{{transport.trailer?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="transport.factory">
+                        <a [routerLink]="['../company-factory', transport.factory?.id, 'view' ]" >{{transport.factory?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="transport.comapny">
+                        <a [routerLink]="['../company-main', transport.comapny?.id, 'view' ]" >{{transport.comapny?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/transport', transport.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/transport', transport.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'transport/'+ transport.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

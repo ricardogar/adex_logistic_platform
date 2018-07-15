@@ -1,0 +1,110 @@
+{
+    "name": "Driver",
+    "fields": [
+        {
+            "fieldName": "pesel",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "postCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "street",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "houseNumber",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "flatNumber",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "medicalExamDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "driverLicenceDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "driver"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "truck",
+            "otherEntityName": "truck",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "driver"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "transport",
+            "otherEntityName": "transport",
+            "otherEntityRelationshipName": "driver"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "fuel",
+            "otherEntityName": "fuel",
+            "otherEntityRelationshipName": "driver"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "distance",
+            "otherEntityName": "distance",
+            "otherEntityRelationshipName": "driver"
+        }
+    ],
+    "changelogDate": "20180715191809",
+    "entityTableName": "driver",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
