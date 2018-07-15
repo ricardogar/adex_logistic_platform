@@ -1,0 +1,29 @@
+version: '2'
+services:
+    adex_platform-app:
+        image: adex_platform
+        environment:
+            # - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
+            - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://adex_platform-postgresql:5432/adex_platform
+            - JHIPSTER_SLEEP=30 # gives time for the JHipster Registry to boot before the application
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=adex_platform-elasticsearch:9300
+        ports:
+            - 8080:8080
+    adex_platform-postgresql:
+        extends:
+            file: postgresql.yml
+            service: adex_platform-postgresql
+    adex_platform-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: adex_platform-elasticsearch
+    jhipster-registry:
+        extends:
+            file: jhipster-registry.yml
+            service: jhipster-registry
+        environment:
+            - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_TYPE=native
+            - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_SEARCH_LOCATIONS=file:./central-config/docker-config/
